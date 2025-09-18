@@ -27,32 +27,23 @@ Example
 """
 
 import random
-
-test_random = random.randit(1,20)
-print("-- เกมทายตัวเลข มาเดาใจคอมพิวเตอร์กันเถอะ")
-print("--ทายเลขจำนวนเต็มตั้งแต่ 1-20--")
-print("--คุณมีโอกาส 6 ครั้ง --")
-
-for i in range(6):
-
-    print(f"ความพยายามครั้งที่ {i+1}")
-    guess_number = int(input("what is your guess number (1-20)?: "))
-
-    if test_random == guess_number:
-        print("ยูเก่งมาก มั่วถูกตั้งแต่ครั้งแรก เทพจริงๆ")
-        break
-    elif guess_number<guess_number:
-        print("ผิดจ้า น้อยไปเนอะ")
-    elif guess_number>test_random:
-        print("ผิดจ้า มากไปหน่อย")
-
-    if i == 3:
-        print(get_parity_hint(test_random))
-    elif i == 5:
-        print(get_divisibility_hint(test_random))
-    elif i == 7:
-        print(get_range_hint(test_random, test_random-12, test_random+12))
-    elif i == 10:
-        print(get_thefirst_digit_hint(test_random))
  
-    i = i+1
+def test_random():
+    random_number = random.randint(1, 20)
+    attempts = 6
+   
+    for num in range(attempts):
+        print(f'รอบที่ {num+1} ')
+        number = int(input(f'input number {num+1}/6 = '))
+        if number == random_number:
+            print('you win เก่งวะๆ')
+            break
+        elif number > random_number:
+            print('Too high')
+        else:
+            print('Too low')
+    else:
+        print('You lose กากวะๆ')
+    print(f'Number Win is : {random_number} ')
+ 
+test_random()
